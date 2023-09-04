@@ -62,16 +62,16 @@ builder.Services.AddCors(options =>
         });
 });
 builder.Services.AddAuthorization();
-builder.Services.AddControllers(); // AddControllers
+builder.Services.AddControllers(); 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<ILinkService, LinkService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 
 var app = builder.Build();
 app.UseSwagger();
-app.UseRouting(); // Add this line for routing
+app.UseRouting(); 
 app.UseCors("AllowSpecificOrigin");
-app.UseAuthentication(); // Add this line for authentication
+app.UseAuthentication(); 
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {

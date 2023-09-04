@@ -15,19 +15,17 @@ namespace InforceTest.Controllers
             _linkService = linkService;
         }
 
-        // GET: api/Link
         [HttpGet]
         public IActionResult GetLinks()
         {
-            var links = _linkService.List(); // Replace with your actual logic to get a list of links
+            var links = _linkService.List(); 
             return Ok(links);
         }
 
-        // GET: api/Link/5
         [HttpGet("{id}")]
         public IActionResult GetLink(int id)
         {
-            var link = _linkService.Get(id); // Replace with your actual logic to get a single link by ID
+            var link = _linkService.Get(id); 
             if (link == null)
             {
                 return NotFound();
@@ -35,7 +33,6 @@ namespace InforceTest.Controllers
             return Ok(link);
         }
 
-        // POST: api/Link
         [HttpPost]
         public IActionResult CreateLink([FromBody] Link link)
         {
@@ -44,21 +41,19 @@ namespace InforceTest.Controllers
                 return BadRequest();
             }
 
-            var createdLink = _linkService.Create(link); // Replace with your actual logic to create a new link
+            var createdLink = _linkService.Create(link);
             return CreatedAtAction(nameof(GetLink), new { id = createdLink.Id }, createdLink);
         }
 
       
-        // DELETE: api/Link/5
         [HttpDelete("{id}")]
         public IActionResult DeleteLink(int id)
         {
-            var result = _linkService.Delete(id); // Replace with your actual logic to delete a link
+            var result = _linkService.Delete(id);
             if (!result)
             {
                 return NotFound();
             }
-
             return NoContent();
         }
     }
